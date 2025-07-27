@@ -14,6 +14,14 @@ export const routes: Routes = [
     loadComponent: () => import('./onboarding/onboarding.page').then( m => m.OnboardingPage)
   },
   {
+    path: 'login',
+    loadComponent: () => import('./login/login.page').then(m => m.LoginPage),
+  },
+  {
+    path: 'register',
+    loadComponent: () => import('./register/register.page').then(m => m.RegisterPage),
+  },
+  {
     path: '',
     redirectTo: 'splash',
     pathMatch: 'full',

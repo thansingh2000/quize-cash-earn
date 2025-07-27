@@ -18,6 +18,13 @@ export class HomePage implements OnInit {
     const onboardingCompleted = localStorage.getItem('onboardingCompleted');
     if (!onboardingCompleted) {
       this.router.navigate(['/onboarding']);
+      return;
+    }
+    // Check if user is logged in
+    const userSession = localStorage.getItem('userSession');
+    if (!userSession) {
+      this.router.navigate(['/login']);
+      return;
     }
   }
 

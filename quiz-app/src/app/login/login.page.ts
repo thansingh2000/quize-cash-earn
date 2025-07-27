@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { IonContent, IonButton, IonInput, IonItem, IonLabel, IonText } from '@ionic/angular/standalone';
 import { RouterModule } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -22,6 +23,11 @@ export class LoginPage {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
+    // Redirect if already logged in
+    const userSession = localStorage.getItem('userSession');
+    if (userSession) {
+      this.router.navigate(['/home']);
+    }
   }
 
   async onSubmit() {
@@ -33,15 +39,18 @@ export class LoginPage {
     this.loading = true;
     try {
       // Replace with actual API call
-      const response = await fetch('https://your-backend-api.com/login', {
+      const response = await fetch(`${environment.apiBaseUrl}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(this.loginForm.value)
       });
       if (!response.ok) {
-        throw new Error('Invalid credentials');
+        const error = await response.text();
+        throw new Error(error || 'Invalid credentials');
       }
-      // On success, navigate to home
+      // On success, store session and navigate to home
+      const userData = await response.json();
+      localStorage.setItem('userSession', JSON.stringify(userData));
       this.router.navigate(['/home']);
     } catch (err: any) {
       this.errorMessage = err.message || 'Login failed';

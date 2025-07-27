@@ -36,8 +36,7 @@ export class OnboardingPage implements OnInit {
   private completeOnboarding() {
     // Save onboarding completion status
     localStorage.setItem('onboardingCompleted', 'true');
-    
-    // Navigate to main app (home page)
-    this.router.navigate(['/home']);
+    // Navigate to login page
+    this.router.navigate(['/login']);
   }
 }

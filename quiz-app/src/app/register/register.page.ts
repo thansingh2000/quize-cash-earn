@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { IonContent, IonButton, IonInput, IonItem, IonLabel, IonText } from '@ionic/angular/standalone';
 import { RouterModule } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-register',
@@ -34,15 +35,17 @@ export class RegisterPage {
     this.loading = true;
     try {
       // Replace with actual API call
-      const response = await fetch('https://your-backend-api.com/register', {
+      const response = await fetch(`${environment.apiBaseUrl}/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(this.registerForm.value)
       });
       if (!response.ok) {
-        throw new Error('Registration failed');
+        const error = await response.text();
+        throw new Error(error || 'Registration failed');
       }
-      // On success, navigate to login
+      // On success, clear any existing session and navigate to login
+      localStorage.removeItem('userSession');
       this.router.navigate(['/login']);
     } catch (err: any) {
       this.errorMessage = err.message || 'Registration failed';

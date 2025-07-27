@@ -15,9 +15,18 @@ export class SplashPage implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    // Simulate loading time and navigate to onboarding
     setTimeout(() => {
-      this.router.navigate(['/onboarding']);
+      const onboardingCompleted = localStorage.getItem('onboardingCompleted');
+      if (!onboardingCompleted) {
+        this.router.navigate(['/onboarding']);
+      } else {
+        const userSession = localStorage.getItem('userSession');
+        if (userSession) {
+          this.router.navigate(['/home']);
+        } else {
+          this.router.navigate(['/login']);
+        }
+      }
     }, 3000); // 3 seconds splash screen
   }
 

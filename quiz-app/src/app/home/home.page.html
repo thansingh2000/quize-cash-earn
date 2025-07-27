@@ -1,0 +1,73 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>QuizCash</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="home-container">
+  <div class="home-content">
+    <!-- Welcome Section -->
+    <div class="welcome-section">
+      <h1 class="welcome-title">Welcome to QuizCash!</h1>
+      <p class="welcome-subtitle">Ready to earn money with your knowledge?</p>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="stats-section">
+      <div class="stat-card">
+        <ion-icon name="trophy-outline" class="stat-icon"></ion-icon>
+        <div class="stat-info">
+          <h3>₹0</h3>
+          <p>Total Earnings</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <ion-icon name="checkmark-circle-outline" class="stat-icon"></ion-icon>
+        <div class="stat-info">
+          <h3>0</h3>
+          <p>Questions Answered</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quiz Categories -->
+    <div class="categories-section">
+      <h2 class="section-title">Choose a Category</h2>
+      <div class="categories-grid">
+        <div class="category-card" (click)="startQuiz('general')">
+          <ion-icon name="globe-outline" class="category-icon"></ion-icon>
+          <h3>General Knowledge</h3>
+          <p>Test your general knowledge</p>
+        </div>
+        <div class="category-card" (click)="startQuiz('science')">
+          <ion-icon name="flask-outline" class="category-icon"></ion-icon>
+          <h3>Science</h3>
+          <p>Explore scientific facts</p>
+        </div>
+        <div class="category-card" (click)="startQuiz('history')">
+          <ion-icon name="library-outline" class="category-icon"></ion-icon>
+          <h3>History</h3>
+          <p>Journey through time</p>
+        </div>
+        <div class="category-card" (click)="startQuiz('sports')">
+          <ion-icon name="football-outline" class="category-icon"></ion-icon>
+          <h3>Sports</h3>
+          <p>Sports trivia & facts</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="actions-section">
+      <ion-button expand="block" class="primary-btn" (click)="startRandomQuiz()">
+        <ion-icon name="play-outline" slot="start"></ion-icon>
+        Start Random Quiz
+      </ion-button>
+      
+      <ion-button expand="block" fill="outline" class="secondary-btn" (click)="viewLeaderboard()">
+        <ion-icon name="podium-outline" slot="start"></ion-icon>
+        Leaderboard
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

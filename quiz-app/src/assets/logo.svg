@@ -1,0 +1,25 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#357ABD;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5A623;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E67E22;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="60" cy="60" r="55" fill="url(#logoGradient)" stroke="#2C3E50" stroke-width="2"/>
+  
+  <!-- Question mark -->
+  <path d="M45 25 Q45 20 50 20 Q55 20 55 25 Q55 30 50 35 L50 40 Q50 45 55 45 Q60 45 60 40 L60 35 Q65 30 65 25 Q65 15 55 15 Q45 15 40 25 Q40 35 45 40" 
+        fill="white" stroke="none"/>
+  <circle cx="50" cy="55" r="3" fill="white"/>
+  
+  <!-- Quiz elements -->
+  <rect x="35" y="70" width="50" height="8" rx="4" fill="url(#circleGradient)" opacity="0.8"/>
+  <rect x="35" y="85" width="40" height="8" rx="4" fill="url(#circleGradient)" opacity="0.6"/>
+  <rect x="35" y="100" width="45" height="8" rx="4" fill="url(#circleGradient)" opacity="0.4"/>
+</svg> 

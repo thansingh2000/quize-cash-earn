@@ -1,0 +1,103 @@
+<ion-content class="onboarding-container">
+  <div class="slides-container">
+    
+    <!-- Slide 1: Welcome -->
+    <div class="slide" [class.active]="currentSlide === 0">
+      <div class="slide-content">
+        <div class="slide-image">
+          <img src="assets/logo.svg" alt="Welcome" class="slide-logo">
+        </div>
+        <h2 class="slide-title">Welcome to QuizCash</h2>
+        <p class="slide-description">
+          Test your knowledge and earn real money! 
+          Answer questions correctly to win cash rewards.
+        </p>
+        <div class="slide-indicator">
+          <span class="indicator" [class.active]="currentSlide === 0"></span>
+          <span class="indicator" [class.active]="currentSlide === 1"></span>
+          <span class="indicator" [class.active]="currentSlide === 2"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2: How to Play -->
+    <div class="slide" [class.active]="currentSlide === 1">
+      <div class="slide-content">
+        <div class="slide-image">
+          <div class="gameplay-icon">
+            <ion-icon name="game-controller-outline"></ion-icon>
+          </div>
+        </div>
+        <h2 class="slide-title">How to Play</h2>
+        <div class="gameplay-steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-text">Choose a quiz category</div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-text">Answer questions correctly</div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-text">Earn points and cash rewards</div>
+          </div>
+        </div>
+        <div class="slide-indicator">
+          <span class="indicator" [class.active]="currentSlide === 0"></span>
+          <span class="indicator" [class.active]="currentSlide === 1"></span>
+          <span class="indicator" [class.active]="currentSlide === 2"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3: Earn Money -->
+    <div class="slide" [class.active]="currentSlide === 2">
+      <div class="slide-content">
+        <div class="slide-image">
+          <div class="money-icon">
+            <ion-icon name="cash-outline"></ion-icon>
+          </div>
+        </div>
+        <h2 class="slide-title">Earn Real Money</h2>
+        <div class="earnings-info">
+          <div class="earning-item">
+            <ion-icon name="checkmark-circle" color="success"></ion-icon>
+            <span>Win cash for correct answers</span>
+          </div>
+          <div class="earning-item">
+            <ion-icon name="checkmark-circle" color="success"></ion-icon>
+            <span>Daily bonus opportunities</span>
+          </div>
+          <div class="earning-item">
+            <ion-icon name="checkmark-circle" color="success"></ion-icon>
+            <span>Withdraw to your bank account</span>
+          </div>
+        </div>
+        <div class="slide-indicator">
+          <span class="indicator" [class.active]="currentSlide === 0"></span>
+          <span class="indicator" [class.active]="currentSlide === 1"></span>
+          <span class="indicator" [class.active]="currentSlide === 2"></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="navigation-buttons">
+    <ion-button 
+      fill="clear" 
+      class="skip-btn" 
+      (click)="skipOnboarding()">
+      Skip
+    </ion-button>
+    
+    <ion-button 
+      fill="solid" 
+      class="next-btn" 
+      (click)="nextSlide()">
+      {{ currentSlide === 2 ? 'Get Started' : 'Next' }}
+    </ion-button>
+  </div>
+</ion-content>
